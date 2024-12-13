@@ -72,4 +72,23 @@ mysql> desc expenses;
 +--------------------+---------------+------+-----+---------+----------------+
 5 rows in set (0.00 sec)
 
-mysql>
+mysql> CREATE TABLE users (
+    ->     userID INT AUTO_INCREMENT PRIMARY KEY,
+    ->     username VARCHAR(50) NOT NULL UNIQUE,
+    ->     password VARCHAR(255) NOT NULL,
+    ->     email VARCHAR(100) NOT NULL UNIQUE,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc users;
++------------+--------------+------+-----+-------------------+-------------------+
+| Field      | Type         | Null | Key | Default           | Extra             |
++------------+--------------+------+-----+-------------------+-------------------+
+| userID     | int          | NO   | PRI | NULL              | auto_increment    |
+| username   | varchar(50)  | NO   | UNI | NULL              |                   |
+| password   | varchar(255) | NO   |     | NULL              |                   |
+| email      | varchar(100) | NO   | UNI | NULL              |                   |
+| created_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++------------+--------------+------+-----+-------------------+-------------------+
+5 rows in set (0.01 sec)
